@@ -1,10 +1,11 @@
 import logo from './logo.svg';
+import classes from './logo.module.scss';
 
 const Logo = () => {
   return (
-    <div>
-      <img src={String(logo)} alt="" width={60} height={60}></img>
-    </div>
+    <span className={classes['logo-container']}>
+      <img src={String(logo)} alt=""></img>
+    </span>
   );
 };
 

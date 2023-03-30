@@ -5,7 +5,7 @@ const Filter = (props: { a: number }) => {
 
   return (
     <div className={classes.filter}>
-      <p className={classes.text}>КОЛИЧЕСТВО ПЕРЕСАДОК</p>
+      <p className={classes.text}>Количество пересадок</p>
       <label className={classes.label}>
         <input type="checkbox" name="filter" className={classes.checkbox} />
         <span>Все</span>

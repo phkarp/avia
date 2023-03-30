@@ -1,11 +1,66 @@
+@import "../../variables";
+
 .sorting {
   margin: 0;
+  display: flex;
+  font-weight: 600;
+
   label {
+    display: block;
+    width: 168px;
+    height: 50px;
+    background-color: $container-bg-color;
+    border: 1px solid $input-border;
+    text-align: center;
+    line-height: 50px;
+    box-sizing: border-box;
 
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
 
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    &:has(input[type=radio]:checked)  {
+      border-color: $input-active-border;
+      background-color: $input-active-border;
+      color: $sorting-active-text;
+    }
 
     input {
-      display: none;
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+
     }
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+
+      ::before {
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        flex-shrink: 0;
+        flex-grow: 0;
+        border: 1px solid #adb5bd;
+        border-radius: 50%;
+        margin-right: 0.5em;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+      }
+
+    }
+
   }
 }

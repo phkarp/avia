@@ -1,5 +1,15 @@
+import { Fragment } from 'react';
+
+import Ticket from '../ticket/ticket';
+
 const TicketsList = () => {
-    return <div></div>;
+  return (
+    <Fragment>
+      <Ticket />
+      <Ticket />
+      <Ticket />
+    </Fragment>
+  );
 };
 
 export default TicketsList;

@@ -6,5 +6,14 @@ body {
   background-color: $common-bg-color;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
+  font-weight: 600;
   color: $common-font-color;
+  text-transform: uppercase;
+
+  button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
 }

@@ -6,10 +6,10 @@
   height: 252px;
   display: flex;
   flex-direction: column;
-  background-color: $filter-bg-color;
-  //padding: 20px;
+  background-color: $container-bg-color;
   border-radius: 5px;
   box-shadow: 0 0 5px 1px #d4d9ea;
+  font-weight: 400;
 
 
   .text {
@@ -23,13 +23,14 @@
     height: 40px;
     justify-self: center;
     position: relative;
+    text-transform: none;
 
     &:hover:before {
       content: '';
       display: block;
       width: 232px;
       height: 40px;
-      background: $filter-hover-color;
+      background: $hover-color;
       position: absolute;
       top: -12px;
       left: 0;
@@ -42,7 +43,7 @@
       opacity: 0;
 
       &:checked+span::before {
-        border-color: $color-active-checkbox;
+        border-color: $input-active-border;
       }
 
       &:checked+span::after {
@@ -51,8 +52,8 @@
         //background: black;
         width: 10px;
         height: 6px;
-        border-left: 2px solid $color-active-checkbox;
-        border-bottom: 2px solid $color-active-checkbox;
+        border-left: 2px solid $input-active-border;
+        border-bottom: 2px solid $input-active-border;
         rotate: -45deg;
         position: absolute;
         left: -24px;
@@ -75,7 +76,7 @@
         width: 20px;
         height: 20px;
         background-color: white;
-        border: 2px $color-checkbox solid;
+        border: 2px $input-border solid;
         border-radius: 3px;
         position: absolute;
         top: -3px;

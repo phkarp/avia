@@ -1,0 +1,53 @@
+@import "src/variables";
+
+.ticket {
+  margin: 20px auto;
+  width: 502px;
+  height: 184px;
+  background-color: $container-bg-color;
+  box-shadow: 0 0 5px 1px #d4d9ea;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+
+  .price-and-logo{
+
+      display: flex;
+      justify-content: space-between;
+      margin: 20px;
+
+      .price {
+        font-size: 24px;
+        color: $price-color;
+      }
+
+      img {
+      }
+    }
+
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 10px 20px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 140px;
+      height: 39px;
+
+      span {
+        line-height: 20px;
+        font-size: 14px;
+
+        &:first-child {
+          font-size: 12px;
+          color: #A0B0B9;
+        }
+
+      }
+
+    }
+  }
+}

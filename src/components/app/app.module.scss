@@ -1,0 +1,16 @@
+.section {
+  margin: 0 auto;
+  width: 785px;
+  display: flex;
+  flex-direction: column;
+
+  .main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header {
+    padding: 40px 0;
+  }
+
+}

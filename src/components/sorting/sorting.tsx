@@ -5,15 +5,15 @@ const Sorting = () => {
     <div className={classes.sorting}>
       <label>
         <input type="radio" name="sorting" />
-        <span>САМЫЙ ДЕШЕВЫЙ</span>
+        <span>Самый дешевый</span>
       </label>
       <label>
         <input type="radio" name="sorting" />
-        <span>САМЫЙ БЫСТРЫЙ</span>
+        <span>Самый быстрый</span>
       </label>
       <label>
         <input type="radio" name="sorting" />
-        <span>ОПТИМАЛЬНЫЙ</span>
+        <span>Оптимальный</span>
       </label>
     </div>
   );

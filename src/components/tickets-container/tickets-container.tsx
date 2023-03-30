@@ -1,15 +1,12 @@
 import { Fragment } from 'react';
 
 import TicketsList from '../tickets-list/tickets-list';
+import Sorting from '../sorting/sorting';
 
 const TicketsContainer = () => {
   return (
     <Fragment>
-      <div>
-        <input type="radio" name="sorting" />
-        <input type="radio" name="sorting" />
-        <input type="radio" name="sorting" />
-      </div>
+      <Sorting />
       <TicketsList />
       <button>more ticket</button>
     </Fragment>

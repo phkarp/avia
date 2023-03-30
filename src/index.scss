@@ -1,3 +1,10 @@
+@import "variables";
+
+
 body {
   margin: 0;
+  background-color: $common-bg-color;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: $common-font-color;
 }

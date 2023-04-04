@@ -1,8 +1,6 @@
 import classes from './filter.module.scss';
 
-const Filter = (props: { a: number }) => {
-  console.log(props);
-
+const Filter = () => {
   return (
     <div className={classes.filter}>
       <p className={classes.text}>Количество пересадок</p>

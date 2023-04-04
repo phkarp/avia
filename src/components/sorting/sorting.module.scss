@@ -25,6 +25,7 @@
 
     &:hover {
       background-color: $hover-color;
+      cursor: pointer;
     }
 
     &:has(input[type=radio]:checked)  {

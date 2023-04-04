@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a5d4103e-a568-4b8e-9f9f-9868077564a4" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/avia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/avia.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ticket/ticket.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ticket/ticket.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets-list/ticket-list.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets-list/ticket-list.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/aviaSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/aviaSlice.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Sass File" />
+        <option value="TypeScript JSX File" />
+        <option value="SCSS File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Nb8SHIDxhgxbqetVVXbqMUyPxI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ioann/WebstormProjects/movieapp&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\src\components\ticket" />
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\src\components\app" />
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\public" />
+      <recent name="C:\Users\Ioann\WebstormProjects\avia" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\src\components\logo" />
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\src\components\app" />
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\public" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5d4103e-a568-4b8e-9f9f-9868077564a4" name="Changes" comment="" />
+      <created>1679921419570</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679921419570</updated>
+      <workItem from="1679921420788" duration="3643000" />
+      <workItem from="1680092988394" duration="880000" />
+      <workItem from="1680093901529" duration="2044000" />
+      <workItem from="1680110015677" duration="12363000" />
+      <workItem from="1680166687628" duration="8180000" />
+      <workItem from="1680175157055" duration="968000" />
+      <workItem from="1680195926217" duration="5516000" />
+      <workItem from="1680258527197" duration="10647000" />
+      <workItem from="1680529398180" duration="1556000" />
+      <workItem from="1680602868658" duration="3078000" />
+      <workItem from="1680605986531" duration="2602000" />
+      <workItem from="1680608625128" duration="645000" />
+      <workItem from="1680617433780" duration="5665000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1680094023207</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680094023207</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial commit">
+      <created>1680094800562</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680094800562</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initial commit">
+      <created>1680166899667</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680166899667</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Initial commit">
+      <created>1680174797975</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680174797975</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Initial commit">
+      <created>1680174831716</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680174831716</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Initial commit">
+      <created>1680605613285</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680605613285</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+  </component>
+</project>

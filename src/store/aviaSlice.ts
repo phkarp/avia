@@ -8,12 +8,16 @@ type AviaState = { tickets: ITicket[]; ticketsDefault: ITicket[]; filters: strin
 const initialState: AviaState = {
   tickets: [],
   ticketsDefault: [],
-  filters: ['Все'],
+  filters: [],
   sorting: 'rb-cheap',
   countVisibleTickets: 5
 };
 
 const sortTickets = (arr: ITicket[], typeSort: string): ITicket[] => {
+
+  if (typeSort === 'rb-optimal') {
+    return arr;
+  }
 
   const sortByArr = ((arr: ITicket[], sorter: (a: ITicket, b: ITicket) => number): ITicket[] => {
     return arr.sort(sorter);
@@ -36,6 +40,33 @@ const sortTickets = (arr: ITicket[], typeSort: string): ITicket[] => {
 
 }
 
+const filterTicked = (tickets: ITicket[], filters: string[]) => {
+  let filteredTicket: ITicket[] = tickets;
+
+  filters.forEach(filter => {
+    switch (filter) {
+      case 'Все':
+        break;
+      case 'Без пересадок':
+        filteredTicket = filteredTicket.filter(ticket => !(ticket.segments[0].stops.length && ticket.segments[1].stops.length));
+        break;
+      case '1 пересадка':
+        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 1 || ticket.segments[1].stops.length === 1));
+        break;
+      case '2 пересадки':
+        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 2 || ticket.segments[1].stops.length === 2));
+        break;
+      case '3 пересадки':
+        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 3 || ticket.segments[1].stops.length === 3));
+        break;
+      default:
+        break;
+    }
+  });
+
+  return filteredTicket;
+}
+
 const aviaSlice = createSlice({
   name: 'tickets',
   initialState,
@@ -50,6 +81,10 @@ const aviaSlice = createSlice({
       state.sorting = action.payload;
 
       if (state.sorting === 'rb-optimal') {
+        if (state.filters.length) {
+          state.tickets = filterTicked(state.ticketsDefault, state.filters);
+          return;
+        }
         state.tickets = state.ticketsDefault;
         return;
       }
@@ -60,17 +95,49 @@ const aviaSlice = createSlice({
     },
 
     handleFilter: (state: Draft<AviaState>, action: PayloadAction<string>) => {
-      const filters = state.filters;
+      let filters = state.filters;
       const currentFilter = action.payload;
+      const tickets = state.ticketsDefault.slice();
 
       const isElemInArr: boolean = filters.includes(currentFilter);
 
-      if (isElemInArr) {
-        const index = filters.indexOf(currentFilter);
-        filters.splice(index, 1);
-        return;
+      switch (currentFilter) {
+        case 'Все':
+          if (isElemInArr && filters.length === 5) {
+              filters = [];
+              break;
+          }
+
+          filters = ['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'];
+          break;
+
+        case 'Без пересадок':
+        case '1 пересадка':
+        case '2 пересадки':
+        case '3 пересадки':
+
+          if (isElemInArr) {
+            if (filters.length === 5) {
+              const index = filters.indexOf('Все');
+              filters.splice(index, 1);
+            }
+            const index = filters.indexOf(currentFilter);
+            filters.splice(index, 1);
+            break;
+          }
+
+          if (filters.length === 3) {
+            filters.push('Все');
+          }
+
+          filters.push(currentFilter);
+          break;
       }
-      filters.push(currentFilter);
+
+      const filteredTickets = filterTicked(tickets, filters);
+      state.tickets = sortTickets(filteredTickets, state.sorting);
+      state.filters = filters;
+
     },
 
     clickShowMore: (state: Draft<AviaState>, action: PayloadAction<number>) => {
@@ -84,7 +151,7 @@ export const { addTickets, handleSorting, clickShowMore, handleFilter } = aviaSl
 export default aviaSlice.reducer;
 
 
-
+// сортировка рандомно
 // if (typeSort === 'rb-optimal') {
 //   const sortRandom = (arr: ITicket[]) => {
 //     let random, randomElem;
@@ -98,4 +165,27 @@ export default aviaSlice.reducer;
 //   };
 //
 //   return sortRandom(arr);
+// }
+
+// фильтрация через if's
+// if (isElemInArr) {
+// if (filters.length === 5 && currentFilter === 'Все') {
+//   state.filters = [];
+//   return;
+// }
+// if (filters.length === 5) {
+//   const index = filters.indexOf('Все');
+//   filters.splice(index, 1);
+// }
+// const index = filters.indexOf(currentFilter);
+// filters.splice(index, 1);
+// return;
+// }
+
+// if (currentFilter === 'Все') {
+//   state.filters = ['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'];
+//   return;
+// }
+// if (filters.length === 3 && currentFilter !== 'Все') {
+//   filters.push('Все');
 // }

@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d7435cac-234c-4778-9dc4-b9efaf40b188" name="Changes" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/hoc/with-empty-list.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +60,7 @@
       <workItem from="1680694374351" duration="146000" />
       <workItem from="1680694527895" duration="232000" />
       <workItem from="1680694931053" duration="9737000" />
-      <workItem from="1680719926588" duration="711000" />
+      <workItem from="1680719926588" duration="1409000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680692005670</created>
@@ -91,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680719979274</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Initial commit">
+      <created>1680720788382</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680720788382</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

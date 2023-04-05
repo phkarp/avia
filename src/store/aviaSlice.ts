@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
+import type { PayloadAction, Draft } from '@reduxjs/toolkit';
 
 import { ITicket } from '../models';
 
@@ -13,7 +13,7 @@ const initialState: AviaState = {
   countVisibleTickets: 5
 };
 
-const sorts = (arr: ITicket[], typeSort: string): ITicket[] => {
+const sortTickets = (arr: ITicket[], typeSort: string): ITicket[] => {
 
   const sortByArr = ((arr: ITicket[], sorter: (a: ITicket, b: ITicket) => number): ITicket[] => {
     return arr.sort(sorter);
@@ -41,12 +41,12 @@ const aviaSlice = createSlice({
   initialState,
   reducers: {
 
-    addTickets(state, actions: PayloadAction<ITicket[]>) {
+    addTickets: (state: Draft<AviaState>, actions: PayloadAction<ITicket[]>) => {
       state.ticketsDefault = actions.payload;
-      state.tickets = sorts(actions.payload.slice(), state.sorting);
+      state.tickets = sortTickets(actions.payload.slice(), state.sorting);
     },
 
-    handleSorting(state, action: PayloadAction<string>) {
+    handleSorting: (state: Draft<AviaState>, action: PayloadAction<string>) => {
       state.sorting = action.payload;
 
       if (state.sorting === 'rb-optimal') {
@@ -56,13 +56,15 @@ const aviaSlice = createSlice({
 
       const { tickets, sorting}  = state;
 
-      state.tickets = sorts(tickets, sorting);
+      state.tickets = sortTickets(tickets, sorting);
     },
 
-    handleFilter(state, action) {
+    handleFilter: (state: Draft<AviaState>, action: PayloadAction<string>) => {
       const filters = state.filters;
       const currentFilter = action.payload;
+
       const isElemInArr: boolean = filters.includes(currentFilter);
+
       if (isElemInArr) {
         const index = filters.indexOf(currentFilter);
         filters.splice(index, 1);
@@ -71,7 +73,7 @@ const aviaSlice = createSlice({
       filters.push(currentFilter);
     },
 
-    clickShowMore(state, action: PayloadAction<number>) {
+    clickShowMore: (state: Draft<AviaState>, action: PayloadAction<number>) => {
       state.countVisibleTickets += action.payload;
     },
   },

@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7435cac-234c-4778-9dc4-b9efaf40b188" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+    <list default="true" id="d7435cac-234c-4778-9dc4-b9efaf40b188" name="Changes" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ideatest/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ideatest/avia.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ideatest/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ideatest/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ideatest/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ideatest/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/filter/filter.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/filter.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/filter/filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/filter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/more-ticket/more-ticket.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/more-ticket/more-ticket.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sorting/sorting.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sorting/sorting.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/aviaSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/aviaSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,19 +21,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\prettier",
-    "ts.external.directory.path": "C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -55,8 +42,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680689947304</updated>
-      <workItem from="1680689949360" duration="1804000" />
+      <workItem from="1680689949360" duration="4387000" />
+      <workItem from="1680694374351" duration="146000" />
+      <workItem from="1680694527895" duration="232000" />
+      <workItem from="1680694931053" duration="345000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1680692005670</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680692005670</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -72,5 +70,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/hook.ts</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

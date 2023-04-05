@@ -15,15 +15,11 @@ import classes from './app.module.scss';
 
 const App = () => {
   const dispatch = useAppDispatch();
+
   useEffect(() => {
       getSearchId()
-          .then(async res => {
-              return await getAllTickets(res.searchId);
-          })
-          .then(tickets => {
-              dispatch(addTickets(tickets));
-              return tickets;
-          });
+          .then(res => getAllTickets(res.searchId))
+          .then(tickets => dispatch(addTickets(tickets)));
       }, []);
 
   return (

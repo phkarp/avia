@@ -3,33 +3,97 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { ITicket } from '../models';
 
-type AviaState = { tickets: ITicket[]; filters: string[]; sorting: string };
+type AviaState = { tickets: ITicket[]; ticketsDefault: ITicket[]; filters: string[]; sorting: string, countVisibleTickets: number };
 
 const initialState: AviaState = {
   tickets: [],
-  filters: [],
-  sorting: '',
+  ticketsDefault: [],
+  filters: ['Все'],
+  sorting: 'rb-cheap',
+  countVisibleTickets: 5
 };
+
+const sorts = (arr: ITicket[], typeSort: string): ITicket[] => {
+
+  const sortByArr = ((arr: ITicket[], sorter: (a: ITicket, b: ITicket) => number): ITicket[] => {
+    return arr.sort(sorter);
+  });
+
+  let sort: (a: ITicket, b:ITicket) => number = () => 0;
+
+  if (typeSort === 'rb-cheap') {
+    sort = (a, b) => {
+      return a.price - b.price;
+    };
+  }
+  if (typeSort === 'rb-fast') {
+    sort = (a, b) => {
+      return (a.segments[0].duration + a.segments[1].duration) - ( b.segments[0].duration + b.segments[1].duration);
+    };
+  }
+
+  return sortByArr(arr, sort);
+
+}
 
 const aviaSlice = createSlice({
   name: 'tickets',
   initialState,
   reducers: {
-    addTickets(state, actions) {
-      state.tickets = actions.payload;
+
+    addTickets(state, actions: PayloadAction<ITicket[]>) {
+      state.ticketsDefault = actions.payload;
+      state.tickets = sorts(actions.payload.slice(), state.sorting);
     },
+
     handleSorting(state, action: PayloadAction<string>) {
-      console.log(state, action.payload);
+      state.sorting = action.payload;
+
+      if (state.sorting === 'rb-optimal') {
+        state.tickets = state.ticketsDefault;
+        return;
+      }
+
+      const { tickets, sorting}  = state;
+
+      state.tickets = sorts(tickets, sorting);
     },
+
     handleFilter(state, action) {
-      console.log(state, action);
+      const filters = state.filters;
+      const currentFilter = action.payload;
+      const isElemInArr: boolean = filters.includes(currentFilter);
+      if (isElemInArr) {
+        const index = filters.indexOf(currentFilter);
+        filters.splice(index, 1);
+        return;
+      }
+      filters.push(currentFilter);
     },
-    showMore(state, action) {
-      console.log(state, action);
+
+    clickShowMore(state, action: PayloadAction<number>) {
+      state.countVisibleTickets += action.payload;
     },
   },
 });
 
-export const { addTickets, handleSorting, showMore, handleFilter } = aviaSlice.actions;
+export const { addTickets, handleSorting, clickShowMore, handleFilter } = aviaSlice.actions;
 
 export default aviaSlice.reducer;
+
+
+
+// if (typeSort === 'rb-optimal') {
+//   const sortRandom = (arr: ITicket[]) => {
+//     let random, randomElem;
+//     for(let i = arr.length - 1; i > 0; i--){
+//       random = Math.floor(Math.random()*(i + 1));
+//       randomElem = arr[random];
+//       arr[random] = arr[i];
+//       arr[i] = randomElem;
+//     }
+//     return arr;
+//   };
+//
+//   return sortRandom(arr);
+// }

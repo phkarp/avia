@@ -6,12 +6,11 @@ import { useAppSelector } from '../../hook';
 import classes from './ticket-list.module.scss'
 
 const TicketsList: FC = () => {
-  const tickets = useAppSelector(state => state.tickets.tickets);
+  const { countVisibleTickets } = useAppSelector(state => state.tickets);
+  const tickets = useAppSelector(state => state.tickets.tickets).slice(0, countVisibleTickets);
   return (
     <ul className={classes['ticket-list']}>
-        {tickets && tickets.map((ticket, i) => {
-            return i < 5 ? <Ticket key={i} ticket={ticket}/> : null;
-        })}
+        {tickets && tickets.map((ticket, i) => <Ticket key={i} ticket={ticket}/>)}
     </ul>
   );
 };

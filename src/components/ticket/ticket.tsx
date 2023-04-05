@@ -1,10 +1,12 @@
-import {ITicket} from "../../models";
+import {FC} from "react";
+
+import type {ITicketProps} from "../../models";
 
 import classes from './ticket.module.scss';
 
-const Ticket = (props: {key:number, ticket: ITicket}) => {
 
-  const {ticket} = props;
+
+const Ticket: FC<ITicketProps> = ({ticket}) => {
   const {segments} = ticket;
 
   const there = segments[0];
@@ -48,10 +50,6 @@ const Ticket = (props: {key:number, ticket: ITicket}) => {
       if (lengthArr10 == 1) { return `${lengthArr} ${arrText[0]}`; }
       return 'Без пересадок';
   }
-
-
-
-  console.log(there.stops.join(', '))
 
   return (
     <div className={classes.ticket}>

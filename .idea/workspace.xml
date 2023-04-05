@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5d4103e-a568-4b8e-9f9f-9868077564a4" name="Changes" comment="Initial commit" />
+    <list default="true" id="a5d4103e-a568-4b8e-9f9f-9868077564a4" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filter/filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/filter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logo/logo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/more-ticket/more-ticket.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/more-ticket/more-ticket.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sorting/sorting.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sorting/sorting.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ticket/ticket.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ticket/ticket.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets-container/tickets-container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets-container/tickets-container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/aviaSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/aviaSlice.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +109,7 @@
       <workItem from="1680602868658" duration="3078000" />
       <workItem from="1680605986531" duration="2602000" />
       <workItem from="1680608625128" duration="645000" />
-      <workItem from="1680617433780" duration="6039000" />
+      <workItem from="1680617433780" duration="8502000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680094023207</created>
@@ -149,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680623698828</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Initial commit">
+      <created>1680623755297</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680623755297</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

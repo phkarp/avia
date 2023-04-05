@@ -17,7 +17,6 @@ const aviaSlice = createSlice({
   reducers: {
     addTickets(state, actions) {
       state.tickets = actions.payload;
-      console.log(actions.payload);
     },
     handleSorting(state, action: PayloadAction<string>) {
       console.log(state, action.payload);

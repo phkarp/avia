@@ -1,3 +1,7 @@
+export interface ITicketProps {
+  key: number, ticket: ITicket
+}
+
 export interface ITicket {
   // Цена в рублях
   price: number;
@@ -32,3 +36,4 @@ export interface ITicket {
     }
   ];
 }
+

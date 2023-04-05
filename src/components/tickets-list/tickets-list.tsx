@@ -1,14 +1,12 @@
-// import { useSelector } from 'react-redux';
+import { FC } from 'react';
 
 import Ticket from '../ticket/ticket';
 import { useAppSelector } from '../../hook';
 
 import classes from './ticket-list.module.scss'
 
-const TicketsList = () => {
+const TicketsList: FC = () => {
   const tickets = useAppSelector(state => state.tickets.tickets);
-  // console.log(tickets);
-
   return (
     <ul className={classes['ticket-list']}>
         {tickets && tickets.map((ticket, i) => {

@@ -1,6 +1,8 @@
+import {FC} from "react";
+
 import classes from './sorting.module.scss';
 
-const Sorting = () => {
+const Sorting: FC = () => {
   return (
     <div className={classes.sorting}>
       <label>

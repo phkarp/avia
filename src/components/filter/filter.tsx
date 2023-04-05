@@ -1,6 +1,9 @@
+import {FC} from "react";
+
 import classes from './filter.module.scss';
 
-const Filter = () => {
+
+const Filter: FC = () => {
   return (
     <div className={classes.filter}>
       <p className={classes.text}>Количество пересадок</p>

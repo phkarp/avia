@@ -1,6 +1,6 @@
 import {FC, FormEvent} from "react";
 
-import {useAppDispatch, useAppSelector} from "../../hook";
+import {useAppDispatch} from "../../hook";
 import {handleSorting} from "../../store/aviaSlice";
 
 import classes from './sorting.module.scss';
@@ -9,6 +9,7 @@ const Sorting: FC = () => {
 
     const dispatch = useAppDispatch();
     const onClickRb = (e: FormEvent<HTMLInputElement>) => dispatch(handleSorting(e.currentTarget.id));
+
   return (
     <div className={classes.sorting}>
       <label>

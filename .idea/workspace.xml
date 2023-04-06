@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7435cac-234c-4778-9dc4-b9efaf40b188" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/hoc/with-empty-list.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/tickets.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/tickets.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/aviaSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/aviaSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +61,8 @@
       <workItem from="1680694374351" duration="146000" />
       <workItem from="1680694527895" duration="232000" />
       <workItem from="1680694931053" duration="9737000" />
-      <workItem from="1680719926588" duration="1409000" />
+      <workItem from="1680719926588" duration="2451000" />
+      <workItem from="1680767129498" duration="8413000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680692005670</created>
@@ -97,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680720788382</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Initial commit">
+      <created>1680721386115</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680721386115</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

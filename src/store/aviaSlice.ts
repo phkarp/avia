@@ -1,81 +1,55 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import type { PayloadAction, Draft } from '@reduxjs/toolkit';
 
+import {getAllTickets} from '../services/tickets';
 import { ITicket } from '../models';
 
-type AviaState = { tickets: ITicket[]; ticketsDefault: ITicket[]; filters: string[]; sorting: string, countVisibleTickets: number };
+type AviaState = { tickets: ITicket[]; ticketsDefault: ITicket[]; filters: string[]; sorting: string, countVisibleTickets: number, searchId: string };
 
 const initialState: AviaState = {
   tickets: [],
   ticketsDefault: [],
   filters: [],
   sorting: 'rb-cheap',
-  countVisibleTickets: 5
+  countVisibleTickets: 5,
+  searchId: ''
 };
 
-const sortTickets = (arr: ITicket[], typeSort: string): ITicket[] => {
+export const fetchSearchId = createAsyncThunk<string, undefined, { rejectValue: string }>(
+    'tickets/fetchSearchId',
+    async function (_, {rejectWithValue}) {
+        const response = await fetch('https://aviasales-test-api.kata.academy/search');
 
-  if (typeSort === 'rb-optimal') {
-    return arr;
-  }
+        if (!response.ok) {
+          return rejectWithValue('Cant\' t load searchId. Server Error.');
+        }
 
-  const sortByArr = ((arr: ITicket[], sorter: (a: ITicket, b: ITicket) => number): ITicket[] => {
-    return arr.sort(sorter);
-  });
+        const data = await response.json();
 
-  let sort: (a: ITicket, b:ITicket) => number = () => 0;
+        return data.searchId;
 
-  if (typeSort === 'rb-cheap') {
-    sort = (a, b) => {
-      return a.price - b.price;
-    };
-  }
-  if (typeSort === 'rb-fast') {
-    sort = (a, b) => {
-      return (a.segments[0].duration + a.segments[1].duration) - ( b.segments[0].duration + b.segments[1].duration);
-    };
-  }
-
-  return sortByArr(arr, sort);
-
-}
-
-const filterTicked = (tickets: ITicket[], filters: string[]) => {
-  let filteredTicket: ITicket[] = tickets;
-
-  filters.forEach(filter => {
-    switch (filter) {
-      case 'Все':
-        break;
-      case 'Без пересадок':
-        filteredTicket = filteredTicket.filter(ticket => !(ticket.segments[0].stops.length && ticket.segments[1].stops.length));
-        break;
-      case '1 пересадка':
-        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 1 || ticket.segments[1].stops.length === 1));
-        break;
-      case '2 пересадки':
-        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 2 || ticket.segments[1].stops.length === 2));
-        break;
-      case '3 пересадки':
-        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 3 || ticket.segments[1].stops.length === 3));
-        break;
-      default:
-        break;
     }
-  });
+)
 
-  return filteredTicket;
-}
+export const fetchTickets = createAsyncThunk<ITicket[], string>(
+    'tickets/fetchTickets',
+    async function (searchId) {
+      const response: ITicket[] | undefined = await getAllTickets(searchId);
+
+      if (response) {
+        return response;
+      }
+
+      throw new Error('Cant\' t load tickets. Server Error.');
+    }
+)
+
+
 
 const aviaSlice = createSlice({
   name: 'tickets',
   initialState,
   reducers: {
-
-    addTickets: (state: Draft<AviaState>, actions: PayloadAction<ITicket[]>) => {
-      state.ticketsDefault = actions.payload;
-      state.tickets = sortTickets(actions.payload.slice(), state.sorting);
-    },
 
     handleSorting: (state: Draft<AviaState>, action: PayloadAction<string>) => {
       state.sorting = action.payload;
@@ -144,9 +118,75 @@ const aviaSlice = createSlice({
       state.countVisibleTickets += action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder
+        .addCase(fetchSearchId.fulfilled, (state, action) => {
+          state.searchId = action.payload;
+        })
+        .addCase(fetchTickets.fulfilled, (state, action) => {
+          state.ticketsDefault = action.payload;
+          state.tickets = sortTickets(action.payload.slice(), state.sorting);
+        })
+  },
+
 });
 
-export const { addTickets, handleSorting, clickShowMore, handleFilter } = aviaSlice.actions;
+
+const sortTickets = (arr: ITicket[], typeSort: string): ITicket[] => {
+
+  if (typeSort === 'rb-optimal') {
+    return arr;
+  }
+
+  const sortByArr = ((arr: ITicket[], sorter: (a: ITicket, b: ITicket) => number): ITicket[] => {
+    return arr.sort(sorter);
+  });
+
+  let sort: (a: ITicket, b:ITicket) => number = () => 0;
+
+  if (typeSort === 'rb-cheap') {
+    sort = (a, b) => {
+      return a.price - b.price;
+    };
+  }
+  if (typeSort === 'rb-fast') {
+    sort = (a, b) => {
+      return (a.segments[0].duration + a.segments[1].duration) - ( b.segments[0].duration + b.segments[1].duration);
+    };
+  }
+
+  return sortByArr(arr, sort);
+
+}
+
+const filterTicked = (tickets: ITicket[], filters: string[]) => {
+  let filteredTicket: ITicket[] = tickets;
+
+  filters.forEach(filter => {
+    switch (filter) {
+      case 'Все':
+        break;
+      case 'Без пересадок':
+        filteredTicket = filteredTicket.filter(ticket => !(ticket.segments[0].stops.length && ticket.segments[1].stops.length));
+        break;
+      case '1 пересадка':
+        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 1 || ticket.segments[1].stops.length === 1));
+        break;
+      case '2 пересадки':
+        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 2 || ticket.segments[1].stops.length === 2));
+        break;
+      case '3 пересадки':
+        filteredTicket = filteredTicket.filter(ticket => (ticket.segments[0].stops.length === 3 || ticket.segments[1].stops.length === 3));
+        break;
+      default:
+        break;
+    }
+  });
+
+  return filteredTicket;
+}
+
+export const { handleSorting, clickShowMore, handleFilter } = aviaSlice.actions;
 
 export default aviaSlice.reducer;
 
@@ -189,3 +229,23 @@ export default aviaSlice.reducer;
 // if (filters.length === 3 && currentFilter !== 'Все') {
 //   filters.push('Все');
 // }
+
+// загрузка одного билета
+// const fetchTickets = createAsyncThunk(
+//     'tickets/fetchTickets',
+//     async function (searchId, {rejectWithValue}) {
+//       const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`);
+//       //
+//       // if (!response.ok) {
+//       //   if (response.status === 500) {
+//       //     dispatch(fetchTickets(searchId));
+//       //   }
+//       //   return rejectWithValue('Cant\' t load searchId. Server Error.');
+//       // }
+//       //
+//       // const data = await response.json();
+//       // const tickets = data.tickets;
+//       //
+//       // return tickets;
+//     }
+// )

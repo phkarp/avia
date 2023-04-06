@@ -1,29 +1,51 @@
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-
 import {Fragment, useEffect} from "react";
 
 import Filter from '../filter/filter';
 import TicketsContainer from '../tickets-container/tickets-container';
 import Logo from '../logo/logo';
-import getAllTickets from '../../services/tickets';
-import getSearchId from '../../services/search-id';
+// import getAllTickets from '../../services/tickets';
+// import getSearchId from '../../services/search-id';
 import {useAppDispatch, useAppSelector} from '../../hook';
-import { addTickets } from '../../store/aviaSlice';
-// import TicketContainerWithEmptyList from "../tickets-container/tickets-container";
+import { fetchSearchId, fetchTickets } from '../../store/aviaSlice';
 
 import Loader from "./loader/loader";
 import classes from './app.module.scss';
-// import tickets from "../../services/tickets";
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const {searchId} = useAppSelector(state => state.tickets);
 
-  useEffect(() => {
-      getSearchId()
-          .then(res => getAllTickets(res.searchId))
-          .then(tickets => dispatch(addTickets(tickets)));
-      }, []);
+  // useEffect(() => {
+  //     // getSearchId()
+  //     //     .then(res => getAllTickets(res.searchId))
+  //     //     .then(tickets => dispatch(addTickets(tickets)));
+  //     dispatch(fetchSearchId());
+  //     }, []);
+
+    // useEffect(() => {
+    //     dispatch(fetchTickets());
+    // }, []);
+
+
+    useEffect(() => {
+        const loadSearchId = async () => {
+            dispatch(fetchSearchId());
+        };
+        loadSearchId();
+    }, []);
+
+    useEffect(() => {
+        const loadTickets = async (searchId: string) => {
+            dispatch(fetchTickets(searchId));
+        };
+        if ( searchId ) {
+            loadTickets(searchId);
+        }
+    }, [searchId]);
+
+
+
+  // console.log(searchId);
 
   const bodySection = <Fragment><header>
       <Logo />
@@ -34,11 +56,11 @@ const App = () => {
       </main></Fragment>;
 
     const tickets = useAppSelector(state => state.tickets.ticketsDefault);
-  return (
-    <section className={classes.section}>
-        {tickets.length && bodySection|| <Loader />}
-    </section>
-  );
+    return (
+        <section className={classes.section}>
+            {tickets.length && bodySection|| <Loader />}
+        </section>
+    );
 };
 
 export default App;

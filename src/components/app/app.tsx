@@ -1,66 +1,53 @@
-import {Fragment, useEffect} from "react";
+import { useEffect } from 'react';
 
-import Filter from '../filter/filter';
-import TicketsContainer from '../tickets-container/tickets-container';
-import Logo from '../logo/logo';
-// import getAllTickets from '../../services/tickets';
-// import getSearchId from '../../services/search-id';
-import {useAppDispatch, useAppSelector} from '../../hook';
+import { Filter } from '../filter/filter';
+import { Tickets } from '../tickets/tickets';
+import { Loader } from '../loader/loader';
+import { useAppDispatch, useAppSelector } from '../../hook';
 import { fetchSearchId, fetchTickets } from '../../store/aviaSlice';
 
-import Loader from "./loader/loader";
+import logo from './logo.svg';
 import classes from './app.module.scss';
 
-const App = () => {
+export const App = () => {
   const dispatch = useAppDispatch();
-  const {searchId} = useAppSelector(state => state.tickets);
+  const { searchId } = useAppSelector(state => state.tickets);
 
-  // useEffect(() => {
-  //     // getSearchId()
-  //     //     .then(res => getAllTickets(res.searchId))
-  //     //     .then(tickets => dispatch(addTickets(tickets)));
-  //     dispatch(fetchSearchId());
-  //     }, []);
+  useEffect(() => {
+    const loadSearchId = () => {
+      dispatch(fetchSearchId());
+    };
+    loadSearchId();
+  }, []);
 
-    // useEffect(() => {
-    //     dispatch(fetchTickets());
-    // }, []);
+  useEffect(() => {
+    const loadTickets = (searchId: string) => {
+      dispatch(fetchTickets(searchId));
+    };
+    if (searchId) {
+      loadTickets(searchId);
+    }
+  }, [searchId]);
 
+  const tickets = useAppSelector(state => state.tickets.ticketsDefault);
 
-    useEffect(() => {
-        const loadSearchId = async () => {
-            dispatch(fetchSearchId());
-        };
-        loadSearchId();
-    }, []);
-
-    useEffect(() => {
-        const loadTickets = async (searchId: string) => {
-            dispatch(fetchTickets(searchId));
-        };
-        if ( searchId ) {
-            loadTickets(searchId);
-        }
-    }, [searchId]);
-
-
-
-  // console.log(searchId);
-
-  const bodySection = <Fragment><header>
-      <Logo />
-  </header>
-      <main className={classes.main}>
-          <Filter />
-          <TicketsContainer />
-      </main></Fragment>;
-
-    const tickets = useAppSelector(state => state.tickets.ticketsDefault);
+  if (!tickets.length) {
     return (
-        <section className={classes.section}>
-            {tickets.length && bodySection|| <Loader />}
-        </section>
+      <section className={classes.section}>
+        <Loader />
+      </section>
     );
-};
+  }
 
-export default App;
+  return (
+    <section className={classes.section}>
+      <header>
+        <img src={String(logo)} alt="" className={classes['logo-container']}></img>
+      </header>
+      <main className={classes.main}>
+        <Filter />
+        <Tickets />
+      </main>
+    </section>
+  );
+};

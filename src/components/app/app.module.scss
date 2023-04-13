@@ -11,6 +11,14 @@
 
   header {
     padding: 40px 0;
+    display: flex;
+    justify-content: center;
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+    }
   }
+
 
 }

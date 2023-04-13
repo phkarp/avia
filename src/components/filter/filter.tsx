@@ -1,40 +1,32 @@
-import {FC} from "react";
+import { FC } from 'react';
 
-import {useAppDispatch, useAppSelector} from "../../hook";
-import {handleFilter} from "../../store/aviaSlice";
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { handleFilter } from '../../store/aviaSlice';
 
 import classes from './filter.module.scss';
 
-
-const Filter: FC = () => {
-
-    const filters = useAppSelector(state => state.tickets.filters);
-    const dispatch = useAppDispatch();
+export const Filter: FC = () => {
+  const filters = useAppSelector(state => state.tickets.filters);
+  const dispatch = useAppDispatch();
+  const arrFilters = ['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'];
+  const newArrFilters = arrFilters.map((filter, i) => {
+    return (
+      <label className={classes.label} key={i}>
+        <input
+          type="checkbox"
+          name="filter"
+          className={classes.checkbox}
+          onChange={() => dispatch(handleFilter(filter))}
+          checked={filters.includes(filter)}
+        />
+        <span>{filter}</span>
+      </label>
+    );
+  });
   return (
     <div className={classes.filter}>
       <p className={classes.text}>Количество пересадок</p>
-      <label className={classes.label}>
-        <input type="checkbox" name="filter" className={classes.checkbox} onChange={() => dispatch(handleFilter('Все'))} checked={filters.includes('Все')}/>
-        <span>Все</span>
-      </label>
-      <label className={classes.label}>
-        <input type="checkbox" name="filter" className={classes.checkbox} onChange={() => dispatch(handleFilter('Без пересадок'))} checked={filters.includes('Без пересадок')}/>
-        <span>Без пересадок</span>
-      </label>
-      <label className={classes.label}>
-        <input type="checkbox" name="filter" className={classes.checkbox} onChange={() => dispatch(handleFilter('1 пересадка'))} checked={filters.includes('1 пересадка')}/>
-        <span>1 пересадка</span>
-      </label>
-      <label className={classes.label}>
-        <input type="checkbox" name="filter" className={classes.checkbox} onChange={() => dispatch(handleFilter('2 пересадки'))} checked={filters.includes('2 пересадки')}/>
-        <span>2 пересадки</span>
-      </label>
-      <label className={classes.label}>
-        <input type="checkbox" name="filter" className={classes.checkbox} onChange={() => dispatch(handleFilter('3 пересадки'))} checked={filters.includes('3 пересадки')}/>
-        <span>3 пересадки</span>
-      </label>
+      {newArrFilters}
     </div>
   );
 };
-
-export default Filter;

@@ -1,31 +1,34 @@
-import {FC, FormEvent} from "react";
+import { FC, FormEvent } from 'react';
 
-import {useAppDispatch} from "../../hook";
-import {handleSorting} from "../../store/aviaSlice";
+import { useAppDispatch } from '../../hook';
+import { handleSorting } from '../../store/aviaSlice';
 
 import classes from './sorting.module.scss';
 
-const Sorting: FC = () => {
+export const Sorting: FC = () => {
+  const dispatch = useAppDispatch();
+  const onClickRb = (e: FormEvent<HTMLInputElement>) => dispatch(handleSorting(e.currentTarget.id));
 
-    const dispatch = useAppDispatch();
-    const onClickRb = (e: FormEvent<HTMLInputElement>) => dispatch(handleSorting(e.currentTarget.id));
+  type Sorting = {
+    'rb-cheap': string;
+    'rb-fast': string;
+    'rb-optimal': string;
+  };
+  const objSorting: Sorting = {
+    'rb-cheap': 'Самый дешевый',
+    'rb-fast': 'Самый быстрый',
+    'rb-optimal': 'Оптимальный',
+  };
+  const arrSorting = ['rb-cheap', 'rb-fast', 'rb-optimal'];
 
-  return (
-    <div className={classes.sorting}>
-      <label>
-        <input type="radio" name="sorting" id="rb-cheap" onClick={onClickRb} defaultChecked={true} />
-        <span>Самый дешевый</span>
+  const newArrSorting = arrSorting.map((sorter: string, i) => {
+    return (
+      <label key={i}>
+        <input type="radio" name="sorting" id={sorter} onClick={onClickRb} defaultChecked={!i && true} />
+        <span>{objSorting[sorter as keyof Sorting]}</span>
       </label>
-      <label>
-        <input type="radio" name="sorting" id ="rb-fast" onClick={onClickRb} />
-        <span>Самый быстрый</span>
-      </label>
-      <label>
-        <input type="radio" name="sorting" id="rb-optimal" onClick={onClickRb} />
-        <span>Оптимальный</span>
-      </label>
-    </div>
-  );
+    );
+  });
+
+  return <div className={classes.sorting}>{newArrSorting}</div>;
 };
-
-export default Sorting;

@@ -1,7 +1,4 @@
-const getSearchId = async () => {
+export const getSearchId = async () => {
   const data = await fetch('https://aviasales-test-api.kata.academy/search');
-  const res = await data.json();
-  return res;
+  return await data.json();
 };
-
-export default getSearchId;

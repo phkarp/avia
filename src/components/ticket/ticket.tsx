@@ -1,13 +1,11 @@
-import {FC} from "react";
+import { FC } from 'react';
 
-import type {ITicketProps} from "../../models";
+import type { ITicketProps } from '../../models';
 
 import classes from './ticket.module.scss';
 
-
-
-const Ticket: FC<ITicketProps> = ({ticket}) => {
-  const {segments} = ticket;
+export const Ticket: FC<ITicketProps> = ({ ticket }) => {
+  const { segments } = ticket;
 
   const there = segments[0];
   const transferThere = there.stops;
@@ -16,11 +14,11 @@ const Ticket: FC<ITicketProps> = ({ticket}) => {
   const transferBack = back.stops;
 
   type Info = {
-    date: string
-    destination: string
-    duration: number
-    origin: string
-    stops: string[]
+    date: string;
+    destination: string;
+    duration: number;
+    origin: string;
+    stops: string[];
   };
 
   const getTimeFly = (info: Info) => {
@@ -28,7 +26,7 @@ const Ticket: FC<ITicketProps> = ({ticket}) => {
 
     const hoursDeparture = new Date(time).getHours();
     const minutesDeparture = new Date(time).getMinutes();
-    const timeDeparture  = `${hoursDeparture}:${minutesDeparture < 10 ? `0${minutesDeparture}` : minutesDeparture}`;
+    const timeDeparture = `${hoursDeparture}:${minutesDeparture < 10 ? `0${minutesDeparture}` : minutesDeparture}`;
 
     const hoursArrival = new Date(time + info.duration * 60000).getHours();
     const minutesArrival = new Date(time + info.duration * 60000).getMinutes();
@@ -38,18 +36,24 @@ const Ticket: FC<ITicketProps> = ({ticket}) => {
   };
 
   const getDuration = (duration: number) => {
-    return `${(duration/60).toFixed()}ч ${duration%60}м`
-  }
+    return `${(duration / 60).toFixed()}ч ${duration % 60}м`;
+  };
 
   const getCountTransfer = (lengthArr: number) => {
-      const arrText = ['пересадка', 'пересадки', 'пересадок'];
+    const arrText = ['пересадка', 'пересадки', 'пересадок'];
 
-      const lengthArr10 = lengthArr % 10;
-      if (lengthArr10 > 4) { return `${lengthArr} ${arrText[2]}`; }
-      if (lengthArr10 > 1 && lengthArr10 < 5) { return `${lengthArr} ${arrText[1]}`; }
-      if (lengthArr10 == 1) { return `${lengthArr} ${arrText[0]}`; }
-      return 'Без пересадок';
-  }
+    const lengthArr10 = lengthArr % 10;
+    if (lengthArr10 > 4) {
+      return `${lengthArr} ${arrText[2]}`;
+    }
+    if (lengthArr10 > 1 && lengthArr10 < 5) {
+      return `${lengthArr} ${arrText[1]}`;
+    }
+    if (lengthArr10 == 1) {
+      return `${lengthArr} ${arrText[0]}`;
+    }
+    return 'Без пересадок';
+  };
 
   return (
     <div className={classes.ticket}>
@@ -88,5 +92,3 @@ const Ticket: FC<ITicketProps> = ({ticket}) => {
     </div>
   );
 };
-
-export default Ticket;

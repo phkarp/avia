@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import type { ITicketProps } from '../../models';
+import type { ITicketProps } from '../../type/ticket';
+import { getDuration, getTimeFly, getCountTransfer } from '../../utils/info-ticket';
 
 import classes from './ticket.module.scss';
 
@@ -12,48 +13,6 @@ export const Ticket: FC<ITicketProps> = ({ ticket }) => {
 
   const back = segments[1];
   const transferBack = back.stops;
-
-  type Info = {
-    date: string;
-    destination: string;
-    duration: number;
-    origin: string;
-    stops: string[];
-  };
-
-  const getTimeFly = (info: Info) => {
-    const time = new Date(info.date).getTime();
-
-    const hoursDeparture = new Date(time).getHours();
-    const minutesDeparture = new Date(time).getMinutes();
-    const timeDeparture = `${hoursDeparture}:${minutesDeparture < 10 ? `0${minutesDeparture}` : minutesDeparture}`;
-
-    const hoursArrival = new Date(time + info.duration * 60000).getHours();
-    const minutesArrival = new Date(time + info.duration * 60000).getMinutes();
-    const timeArrival = `${hoursArrival}:${minutesArrival < 10 ? `0${minutesArrival}` : minutesArrival}`;
-
-    return `${timeDeparture} - ${timeArrival}`;
-  };
-
-  const getDuration = (duration: number) => {
-    return `${(duration / 60).toFixed()}ч ${duration % 60}м`;
-  };
-
-  const getCountTransfer = (lengthArr: number) => {
-    const arrText = ['пересадка', 'пересадки', 'пересадок'];
-
-    const lengthArr10 = lengthArr % 10;
-    if (lengthArr10 > 4) {
-      return `${lengthArr} ${arrText[2]}`;
-    }
-    if (lengthArr10 > 1 && lengthArr10 < 5) {
-      return `${lengthArr} ${arrText[1]}`;
-    }
-    if (lengthArr10 == 1) {
-      return `${lengthArr} ${arrText[0]}`;
-    }
-    return 'Без пересадок';
-  };
 
   return (
     <div className={classes.ticket}>

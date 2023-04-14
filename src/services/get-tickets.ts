@@ -1,8 +1,7 @@
-import { ITicket } from '../models';
+import { Ticket } from '../type/ticket';
 
-export async function getAllTickets(searchId: string, arr: ITicket[] = []): Promise<ITicket[]> {
+export async function getAllTickets(searchId: string, arr: Ticket[] = []): Promise<Ticket[]> {
   try {
-
     const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`);
 
     if (!response.ok) {
@@ -14,7 +13,6 @@ export async function getAllTickets(searchId: string, arr: ITicket[] = []): Prom
     const data = await response.json();
 
     if (!data.stop) {
-
       arr.push(...data.tickets);
       await getAllTickets(searchId, arr);
       return arr;
@@ -27,4 +25,3 @@ export async function getAllTickets(searchId: string, arr: ITicket[] = []): Prom
     return arr;
   }
 }
-

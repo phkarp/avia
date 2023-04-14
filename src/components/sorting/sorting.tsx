@@ -1,6 +1,6 @@
 import { FC, FormEvent } from 'react';
 
-import { useAppDispatch } from '../../hook';
+import { useAppDispatch } from '../../hooks/hook';
 import { handleSorting } from '../../store/aviaSlice';
 
 import classes from './sorting.module.scss';
@@ -14,14 +14,14 @@ export const Sorting: FC = () => {
     'rb-fast': string;
     'rb-optimal': string;
   };
+
   const objSorting: Sorting = {
     'rb-cheap': 'Самый дешевый',
     'rb-fast': 'Самый быстрый',
     'rb-optimal': 'Оптимальный',
   };
-  const arrSorting = ['rb-cheap', 'rb-fast', 'rb-optimal'];
 
-  const newArrSorting = arrSorting.map((sorter: string, i) => {
+  const newArrSorting = Object.keys(objSorting).map((sorter: string, i) => {
     return (
       <label key={i}>
         <input type="radio" name="sorting" id={sorter} onClick={onClickRb} defaultChecked={!i && true} />

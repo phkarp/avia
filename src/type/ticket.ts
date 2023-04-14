@@ -1,8 +1,9 @@
 export interface ITicketProps {
-  key: number, ticket: ITicket
+  key: number;
+  ticket: Ticket;
 }
 
-export interface ITicket {
+export interface Ticket {
   // Цена в рублях
   price: number;
   // Код авиакомпании (iata)
@@ -37,3 +38,10 @@ export interface ITicket {
   ];
 }
 
+export type Info = {
+  date: string;
+  destination: string;
+  duration: number;
+  origin: string;
+  stops: string[];
+};

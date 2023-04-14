@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../hook';
+import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { handleFilter } from '../../store/aviaSlice';
 
 import classes from './filter.module.scss';

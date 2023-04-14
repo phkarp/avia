@@ -2,28 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7435cac-234c-4778-9dc4-b9efaf40b188" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/components/tickets/tickets.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/tickets/tickets.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/loader/loader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loader/loader.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/loader/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loader/loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filter/filter.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/filter.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/filter/filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filter/filter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/more-ticket/more-ticket.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/more-ticket/more-ticket.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sorting/sorting.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sorting/sorting.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ticket/ticket.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ticket/ticket.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tickets-container/ticket-container.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets/tickets.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tickets-container/ticket-container.module.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets/tickets.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tickets-container/ticket-container.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tickets-container/tickets-container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets-list/ticket-list.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets-list/ticket-list.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tickets-list/tickets-list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/search-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/search-id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets/tickets.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets/tickets.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets/tickets.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tickets/tickets.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/hook.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/ticket.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/get-tickets.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/get-tickets.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/aviaSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/aviaSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,24 +47,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Ioann/WebstormProjects/avia",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ioann/WebstormProjects/avia&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Ioann\\WebstormProjects\\avia\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\src\type" />
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\src" />
+      <recent name="C:\Users\Ioann\WebstormProjects\avia\src\hooks" />
       <recent name="C:\Users\Ioann\WebstormProjects\avia\src\components\app" />
       <recent name="C:\Users\Ioann\WebstormProjects\avia\src\components" />
     </key>
@@ -91,7 +87,8 @@
       <workItem from="1680719926588" duration="2451000" />
       <workItem from="1680767129498" duration="8959000" />
       <workItem from="1681124868957" duration="964000" />
-      <workItem from="1681409899824" duration="3910000" />
+      <workItem from="1681409899824" duration="4142000" />
+      <workItem from="1681464834315" duration="5739000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680692005670</created>
@@ -142,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680776328445</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Initial commit">
+      <created>1681414061160</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681414061160</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +171,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/hook.ts</url>
+          <url>file://$PROJECT_DIR$/src/hooks/hook.ts</url>
           <line>1</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

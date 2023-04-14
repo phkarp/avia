@@ -1,12 +1,15 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction, Draft } from '@reduxjs/toolkit';
 
-import { getAllTickets } from '../services/get-tickets';
-import { ITicket } from '../models';
+import { Ticket } from '../type/ticket';
+import { sortTickets } from '../utils/sorting';
+import { filterTicket } from '../utils/filter';
+
+import { fetchTickets, fetchSearchId } from './aviaThunks';
 
 type AviaState = {
-  tickets: ITicket[];
-  ticketsDefault: ITicket[];
+  tickets: Ticket[];
+  ticketsDefault: Ticket[];
   filters: string[];
   sorting: string;
   countVisibleTickets: number;
@@ -22,31 +25,6 @@ const initialState: AviaState = {
   searchId: '',
 };
 
-export const fetchSearchId = createAsyncThunk<string, undefined, { rejectValue: string }>(
-  'tickets/fetchSearchId',
-  async function (_, { rejectWithValue }) {
-    const response = await fetch('https://aviasales-test-api.kata.academy/search');
-
-    if (!response.ok) {
-      return rejectWithValue("Cant' t load searchId. Server Error.");
-    }
-
-    const data = await response.json();
-
-    return data.searchId;
-  }
-);
-
-export const fetchTickets = createAsyncThunk<ITicket[], string>('tickets/fetchTickets', async function (searchId) {
-  const response: ITicket[] | undefined = await getAllTickets(searchId);
-
-  if (response) {
-    return response;
-  }
-
-  throw new Error("Cant' t load tickets. Server Error.");
-});
-
 const aviaSlice = createSlice({
   name: 'tickets',
   initialState,
@@ -56,7 +34,7 @@ const aviaSlice = createSlice({
 
       if (state.sorting === 'rb-optimal') {
         if (state.filters.length) {
-          state.tickets = filterTicked(state.ticketsDefault, state.filters);
+          state.tickets = filterTicket(state.ticketsDefault, state.filters);
           return;
         }
         state.tickets = state.ticketsDefault;
@@ -107,7 +85,7 @@ const aviaSlice = createSlice({
           break;
       }
 
-      const filteredTickets = filterTicked(tickets, filters);
+      const filteredTickets = filterTicket(tickets, filters);
       state.tickets = sortTickets(filteredTickets, state.sorting);
       state.filters = filters;
     },
@@ -127,66 +105,6 @@ const aviaSlice = createSlice({
       });
   },
 });
-
-const sortTickets = (arr: ITicket[], typeSort: string): ITicket[] => {
-  if (typeSort === 'rb-optimal') {
-    return arr;
-  }
-
-  const sortByArr = (arr: ITicket[], sorter: (a: ITicket, b: ITicket) => number): ITicket[] => {
-    return arr.sort(sorter);
-  };
-
-  let sort: (a: ITicket, b: ITicket) => number = () => 0;
-
-  if (typeSort === 'rb-cheap') {
-    sort = (a, b) => {
-      return a.price - b.price;
-    };
-  }
-  if (typeSort === 'rb-fast') {
-    sort = (a, b) => {
-      return a.segments[0].duration + a.segments[1].duration - (b.segments[0].duration + b.segments[1].duration);
-    };
-  }
-
-  return sortByArr(arr, sort);
-};
-
-const filterTicked = (tickets: ITicket[], filters: string[]) => {
-  let filteredTicket: ITicket[] = tickets;
-
-  filters.forEach(filter => {
-    switch (filter) {
-      case 'Все':
-        break;
-      case 'Без пересадок':
-        filteredTicket = filteredTicket.filter(
-          ticket => !(ticket.segments[0].stops.length && ticket.segments[1].stops.length)
-        );
-        break;
-      case '1 пересадка':
-        filteredTicket = filteredTicket.filter(
-          ticket => ticket.segments[0].stops.length === 1 || ticket.segments[1].stops.length === 1
-        );
-        break;
-      case '2 пересадки':
-        filteredTicket = filteredTicket.filter(
-          ticket => ticket.segments[0].stops.length === 2 || ticket.segments[1].stops.length === 2
-        );
-        break;
-      case '3 пересадки':
-        filteredTicket = filteredTicket.filter(
-          ticket => ticket.segments[0].stops.length === 3 || ticket.segments[1].stops.length === 3
-        );
-        break;
-      default:
-        break;
-    }
-  });
-
-  return filteredTicket;
-};
 
 export const { handleSorting, clickShowMore, handleFilter } = aviaSlice.actions;
 

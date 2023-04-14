@@ -2,12 +2,12 @@ import { FC, FormEvent } from 'react';
 
 import { TicketsList } from '../tickets-list/tickets-list';
 import { Sorting } from '../sorting/sorting';
-import { useAppDispatch, useAppSelector } from '../../hook';
+import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { clickShowMore } from '../../store/aviaSlice';
 
-import classes from './tickets.scss';
+import classes from './content.module.scss';
 
-export const Tickets: FC = () => {
+export const Content: FC = () => {
   const dispatch = useAppDispatch();
   const tickets = useAppSelector(state => state.tickets.tickets);
 
@@ -18,13 +18,13 @@ export const Tickets: FC = () => {
 
   if (!tickets.length) {
     return (
-      <div className={classes['ticket-container']}>
-        <h1 style={{ display: 'block', width: '1180px' }}>Таких билетов нет</h1>
+      <div className={classes.content}>
+        <h1 style={{ display: 'inline-block', width: '450px' }}>Таких билетов нет</h1>
       </div>
     );
   }
   return (
-    <div className={classes['ticket-container']}>
+    <div className={classes.content}>
       <Sorting />
       <TicketsList />
       <button className={classes['btn-more']} onClick={btnOnClick}>

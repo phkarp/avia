@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
 import { Filter } from '../filter/filter';
-import { Tickets } from '../tickets/tickets';
+import { Content } from '../content/content';
 import { Loader } from '../loader/loader';
-import { useAppDispatch, useAppSelector } from '../../hook';
-import { fetchSearchId, fetchTickets } from '../../store/aviaSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/hook';
+import { fetchSearchId, fetchTickets } from '../../store/aviaThunks';
 
 import logo from './logo.svg';
 import classes from './app.module.scss';
@@ -46,7 +46,7 @@ export const App = () => {
       </header>
       <main className={classes.main}>
         <Filter />
-        <Tickets />
+        <Content />
       </main>
     </section>
   );
